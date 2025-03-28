@@ -10,6 +10,18 @@ export class Message {
     type: 'varchar',
     length: 100,
   })
+  userName: string;
+
+  @Column({
+    type: 'varchar',
+    length: 100,
+  })
+  avatar: string;
+
+  @Column({
+    type: 'varchar',
+    length: 100,
+  })
   user_id: string;
 
   @Column({

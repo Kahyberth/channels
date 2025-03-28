@@ -1,4 +1,4 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Chat } from './chat.entity';
 
 @Entity()
@@ -65,4 +65,18 @@ export class Channel {
 
     @OneToMany(() => Chat, (chat) => chat.channel)
     chats: Chat[];
+
+    @Column({ type: 'uuid', nullable: true })
+    parent_id: string;
+
+    @ManyToOne(() => Channel, (channel) => channel.subChannels, {
+        nullable: true,
+        onDelete: 'CASCADE',
+    })
+    parent: Channel | null;
+
+    @OneToMany(() => Channel, (channel) => channel.parent)
+    subChannels: Channel[];
+
 }
+ 

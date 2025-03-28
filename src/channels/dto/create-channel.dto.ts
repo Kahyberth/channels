@@ -23,4 +23,7 @@ export class CreateChannelDto {
     @IsOptional()
     is_deleted?: boolean;
 
+    @IsString()
+    @IsOptional()
+    channel_name?: string;
 }
