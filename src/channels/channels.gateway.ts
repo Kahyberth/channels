@@ -1,7 +1,7 @@
 import { WebSocketGateway, SubscribeMessage, MessageBody, OnGatewayConnection, OnGatewayDisconnect, WebSocketServer } from '@nestjs/websockets';
 import { ChannelsService } from './channels.service';
 import { Server, Socket } from 'socket.io';
-import { envs } from 'src/commons/envs';
+import { envs } from '../commons/envs';
 
 
 @WebSocketGateway({

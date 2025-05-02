@@ -7,11 +7,11 @@ import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { EntityManager } from 'typeorm';
 import { Chat } from './entities/chat.entity';
 import { Message } from './entities/message.entity';
-import { Channels, Status } from 'src/interfaces/channel.interface';
-import { NATS_SERVICE } from 'src/enum/service.enums';
+import { Channels, Status } from '../interfaces/channel.interface';
+import { NATS_SERVICE } from '../enum/service.enums';
 import { catchError, firstValueFrom } from 'rxjs';
-import { Members } from 'src/interfaces/members.interface';
-import { Teams } from 'src/interfaces/teams.interface';
+import { Members } from '../interfaces/members.interface';
+import { Teams } from '../interfaces/teams.interface';
 
 @Injectable()
 export class ChannelsService {
