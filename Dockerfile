@@ -40,5 +40,5 @@ USER bun
 
 EXPOSE 3001
 
-CMD ["bun", "dist/main"]
+CMD ["bun", "dist/main.js"]
 
