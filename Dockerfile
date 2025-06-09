@@ -38,7 +38,8 @@ COPY --from=builder /usr/src/app/tsconfig.json tsconfig.json
 
 USER bun
 
-EXPOSE 3001
+EXPOSE 4004
+EXPOSE 8082
 
 CMD ["bun", "dist/main.js"]
 

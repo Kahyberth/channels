@@ -7,7 +7,8 @@ import { Chat } from './entities/chat.entity';
 import { ChannelController } from './channel.controller';
 import { Message } from './entities/message.entity';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { NATS_SERVICE } from 'src/enum/service.enums';
+import { NATS_SERVICE } from '../enum/service.enums';
+import { envs } from '../commons/envs';
 
 @Module({
   providers: [ChannelsGateway, ChannelsService],
@@ -18,10 +19,10 @@ import { NATS_SERVICE } from 'src/enum/service.enums';
     ),
     ClientsModule.register([
       {
-        name: NATS_SERVICE.NATS_SERVICE,
+        name: 'NATS_SERVICE',
         transport: Transport.NATS,
         options: {
-          url: 'nats://localhost:4222',
+          servers: envs.NATS_SERVERS,
         },
       },
     ]),

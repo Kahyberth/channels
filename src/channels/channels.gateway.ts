@@ -73,7 +73,6 @@ export class ChannelsGateway  implements OnGatewayConnection, OnGatewayDisconnec
 
   async handleConnection(client: any, ...args: any[]) {
     console.log(`Client connected: ${client.id}`);
-    // Perform any necessary setup or initialization here
   }
 
 
@@ -102,7 +101,6 @@ export class ChannelsGateway  implements OnGatewayConnection, OnGatewayDisconnec
 
     this.onParticipants(client, channel);
     
-    //Cargar mensajes
     
     console.log(channel);
     const messages = await this.channelsService.loadMessages(channel);
