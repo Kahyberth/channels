@@ -1,0 +1,19 @@
+
+
+services:
+  nats:
+    image: nats:latest
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+
+  channels-ms:
+    image: taskmate-channels-ms:latest
+    build: .
+    env_file:
+      - ./.env
+    depends_on:
+      - nats
+    ports:
+      - "4004:4004"
+      - "8082:8082"

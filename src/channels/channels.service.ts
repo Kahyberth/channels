@@ -94,6 +94,8 @@ export class ChannelsService {
     avatar: string;
     userName: string;
   }) {
+
+    console.log('Sending message to microservice:', payload);
     const chat = await this.chatRepository.findOne({
       where: { channel_id: payload.channel_id },
     });
@@ -145,8 +147,6 @@ export class ChannelsService {
 
   async loadChannels(team_id: string) {
     try {
-      console.log('Loading channels');
-      console.log(team_id);
       const channels = await this.channelRepository.find({
         where: { team_id, is_deleted: false },
         relations: ['parent', 'chats', 'subChannels'],

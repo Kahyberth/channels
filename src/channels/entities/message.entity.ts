@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, CreateDateColumn } from 'typeorm';
 import { Chat } from './chat.entity';
 
 @Entity()
@@ -13,8 +13,7 @@ export class Message {
   userName: string;
 
   @Column({
-    type: 'varchar',
-    length: 100,
+    type: 'text',
   })
   avatar: string;
 
@@ -30,7 +29,7 @@ export class Message {
   })
   message: string;
 
-  @Column({
+  @CreateDateColumn({
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP',
   })
